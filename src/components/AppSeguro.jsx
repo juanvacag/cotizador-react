@@ -1,6 +1,8 @@
 import Formulario from "./Formulario"
 
 const AppSeguro = () => {
+
+  
   return (
     <>
         <header className="my-10">
