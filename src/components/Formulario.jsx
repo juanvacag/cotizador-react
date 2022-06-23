@@ -27,7 +27,7 @@ const Formulario = () => {
             >
                 <div className="my-5">
                     <label className="block mb-3 font-bold text-gray-400 uppercase">
-                        Marca
+                        Origen
                     </label>
                     <select
                         name="marca" 
@@ -35,7 +35,7 @@ const Formulario = () => {
                         onChange={e => handleChangeDatos(e)}
                         value={datos.marca}
                     >
-                        <option value="">-- Selecciona una Marca --</option>
+                        <option value="">-- Seleccione el Origen --</option>
                         {MARCAS.map(marca => (
                             <option
                                 key={marca.id}
@@ -95,7 +95,7 @@ const Formulario = () => {
                <input
                     type="submit"
                     className='w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white cursor-pointer p-3 uppercase font-bold'
-                    value="Cotizar"
+                    value="Calcular"
                />
             </form>
     </>
