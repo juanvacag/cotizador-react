@@ -24,3 +24,10 @@ export function calcularMarca(marca) {
 export function calcularPlan (plan) {
         return (plan === "1") ? 1.2 : 1.5
 }
+
+export function formatearDinero(cantidad) {
+    return cantidad.toLocaleString('es-ES', {
+        style: 'currency',
+        currency: 'EUR',
+    })
+}

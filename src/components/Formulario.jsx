@@ -35,7 +35,7 @@ const Formulario = () => {
                         onChange={e => handleChangeDatos(e)}
                         value={datos.marca}
                     >
-                        <option value="">-- Selecciona Marca --</option>
+                        <option value="">-- Selecciona una Marca --</option>
                         {MARCAS.map(marca => (
                             <option
                                 key={marca.id}
@@ -57,7 +57,7 @@ const Formulario = () => {
                         onChange={e => handleChangeDatos(e)}
                         value={datos.year}
                     >
-                        <option value="">-- Selecciona Año --</option>
+                        <option value="">-- Selecciona un Año --</option>
                         {YEARS.map(year => (
                             <option
                                 key={year}

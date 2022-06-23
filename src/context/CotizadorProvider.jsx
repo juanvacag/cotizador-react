@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react'
-import {obtenerDiferenciaYear, calcularMarca, calcularPlan} from '../helpers'
+import {obtenerDiferenciaYear, calcularMarca, calcularPlan, formatearDinero} from '../helpers'
 
 const CotizadorContext = createContext()
 
@@ -12,6 +12,9 @@ const CotizadorProvider = ({children}) => {
     })
 
     const [error, setError] = useState('')
+    const [resultado, setResultado] = useState(0)
+    const [cargando, setCargando] = useState(false)
+
 
     const handleChangeDatos = e => {        
         setDatos({
@@ -22,7 +25,6 @@ const CotizadorProvider = ({children}) => {
     }
 
     const cotizarSeguro = () => {
-        //console.log('COTIZANDO...')
 
         //BASE DEL SEGURO
         let resultado = 2000
@@ -41,10 +43,23 @@ const CotizadorProvider = ({children}) => {
 
         //BASICO 20%
         //COMPLETO 50%
-        resultado *=calcularPlan(datos.plan).toFixed(2)
-    }
-        //FORMATEAR DINERO
+        resultado *=calcularPlan(datos.plan)
 
+        //resultado = resultado.toFixed(2)
+        //console.log(resultado)
+
+        //FORMATEAR DINERO
+        resultado = formatearDinero(resultado)
+
+        setCargando(true)
+
+        setTimeout(() => {
+            setResultado(resultado)
+            setCargando(false)
+        }, 3000);
+        
+
+    }
 
     return (
         <CotizadorContext.Provider
@@ -53,7 +68,9 @@ const CotizadorProvider = ({children}) => {
                 handleChangeDatos,
                 error,
                 setError,
-                cotizarSeguro
+                cotizarSeguro,
+                resultado,
+                cargando
             }}
         >
                 {children}
